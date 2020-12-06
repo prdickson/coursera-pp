@@ -24,7 +24,7 @@ public class Birthday {
 
         int count = 0;
         for(int j = 0; j < results.length; j++) {
-            if (count > t / 2)
+            if (count >= t / 2)
                 break;
             count += results[j];
             System.out.println(String.format("%s\t %s\t %s", j+1, results[j], count / (double)t));
