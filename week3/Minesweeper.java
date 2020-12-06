@@ -6,8 +6,13 @@ public class Minesweeper {
         boolean[] board = new boolean[m * n];
         
         for (int i = 0; i < k; i++) {
-            int p = (int)(Math.random() * board.length);
-            board[p] = true;
+            while (true) {
+                int p = (int)(Math.random() * board.length);
+                if (!board[p]) {
+                    board[p] = true;
+                    break;
+                }
+            } 
         }
 
         for(int i = 0; i < board.length; i++) {
@@ -15,7 +20,7 @@ public class Minesweeper {
                 System.out.println("");
 
             if (board[i]) {
-                System.out.print(String.format("%s ", '*'));
+                System.out.print(String.format("%s  ", '*'));
             } else {
                 int nearby = 0;
                 
@@ -48,7 +53,7 @@ public class Minesweeper {
                 if (colToRight && rowBelow && (i + n + 1) < board.length)
                     nearby += board[i + n + 1] ? 1 : 0;
 
-                System.out.print(String.format("%s ", nearby));
+                System.out.print(String.format("%s  ", nearby));
             }
         }
     }

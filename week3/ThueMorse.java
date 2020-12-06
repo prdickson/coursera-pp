@@ -18,7 +18,7 @@ public class ThueMorse {
 
         for(int j = 0; j < n; j++) {
             for(int k = 0; k < n; k++) { 
-                System.out.print(String.format("%s ", a[j] == a[k] ? "+": "-"));
+                System.out.print(String.format("%s  ", a[j] == a[k] ? "+": "-"));
             }
             System.out.println("");
         }
