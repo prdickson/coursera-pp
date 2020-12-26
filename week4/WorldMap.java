@@ -3,6 +3,7 @@ public class WorldMap {
         int width = StdIn.readInt();
         int height = StdIn.readInt();
 
+        StdDraw.enableDoubleBuffering();
         StdDraw.setCanvasSize(width, height);
         StdDraw.setXscale(0, width);
         StdDraw.setYscale(0, height);
@@ -19,5 +20,6 @@ public class WorldMap {
             }
             StdDraw.polygon(x, y);
         }
+        StdDraw.show();
     }
 }
