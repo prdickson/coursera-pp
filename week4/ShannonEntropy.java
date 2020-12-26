@@ -17,6 +17,7 @@ public class ShannonEntropy {
                 ent += p * (Math.log(p) / Math.log(2));
             }
         }
-        StdOut.println(-ent);
+        StdOut.printf("%.4f", -ent);
+        StdOut.println();
     }
 }

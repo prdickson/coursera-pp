@@ -11,7 +11,7 @@ public class Checkerboard {
                 if (blue)
                     StdDraw.setPenColor(StdDraw.BLUE);
                 else
-                    StdDraw.setPenColor(StdDraw.GRAY);
+                    StdDraw.setPenColor(StdDraw.LIGHT_GRAY);
 
                 StdDraw.filledSquare(i+ 0.5, j + 0.5, 0.5);
                 blue = !blue;
