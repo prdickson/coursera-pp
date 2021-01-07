@@ -14,17 +14,20 @@ public class ActivationFunction {
 
     // Returns the hyperbolic tangent of x.
     public static double tanh(double x) {
-        return 0.0;
+        return (Math.exp(x) - Math.exp(-x)) / (Math.exp(x) + Math.exp(-x));
     }
 
     // Returns the softsign function of x.
     public static double softsign(double x) {
-        return 0.0;
+        return x / (1 + Math.abs(x));
     }
 
     // Returns the square nonlinearity function of x.
     public static double sqnl(double x){
-        return 0.0;
+        if (x <= -2) return -1.0;
+        if (x < 0) return x + (Math.pow(x, 2) / 4);
+        if (x < 2) return x - (Math.pow(x, 2) / 4);
+        return 1.0;
     }
 
     public static void main(String[] args) {
