@@ -2,12 +2,14 @@ public class ActivationFunction {
 
     // Returns the Heaviside function of x.
     public static double heaviside(double x) {
-        return 0.0;
+        if (x < 0) return 0;
+        if (x > 0) return 1;
+        return 0.5;
     }
 
     // Returns the sigmoid function of x.
     public static double sigmoid(double x) {
-        return 0.0;
+        return 1 / (1 + Math.exp(-x));
     }
 
     // Returns the hyperbolic tangent of x.
@@ -27,15 +29,15 @@ public class ActivationFunction {
 
     public static void main(String[] args) {
         Double m = Double.parseDouble(args[0]);
-        StdOut.printf("  viside(%g) = %g", m, ActivationFunction.heaviside(m));
+        StdOut.printf("  viside(%s) = %s", m, ActivationFunction.heaviside(m));
         StdOut.println();
-        StdOut.printf(" sigmoid(%g) = %g", m, ActivationFunction.sigmoid(m));
+        StdOut.printf(" sigmoid(%s) = %s", m, ActivationFunction.sigmoid(m));
         StdOut.println();
-        StdOut.printf("    tanh(%g) = %g", m, ActivationFunction.tanh(m));
+        StdOut.printf("    tanh(%s) = %s", m, ActivationFunction.tanh(m));
         StdOut.println();
-        StdOut.printf("softsign(%g) = %g", m, ActivationFunction.softsign(m));
+        StdOut.printf("softsign(%s) = %s", m, ActivationFunction.softsign(m));
         StdOut.println();
-        StdOut.printf("    sqnl(%g) = %g", m, ActivationFunction.softsign(m));
+        StdOut.printf("    sqnl(%s) = %s", m, ActivationFunction.softsign(m));
         StdOut.println();
     }
 }
