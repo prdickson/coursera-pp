@@ -32,15 +32,15 @@ public class ActivationFunction {
 
     public static void main(String[] args) {
         Double m = Double.parseDouble(args[0]);
-        StdOut.printf("  viside(%s) = %s", m, ActivationFunction.heaviside(m));
+        StdOut.printf("heaviside(%s) = %s", m, ActivationFunction.heaviside(m));
         StdOut.println();
-        StdOut.printf(" sigmoid(%s) = %s", m, ActivationFunction.sigmoid(m));
+        StdOut.printf("  sigmoid(%s) = %s", m, ActivationFunction.sigmoid(m));
         StdOut.println();
-        StdOut.printf("    tanh(%s) = %s", m, ActivationFunction.tanh(m));
+        StdOut.printf("     tanh(%s) = %s", m, ActivationFunction.tanh(m));
         StdOut.println();
-        StdOut.printf("softsign(%s) = %s", m, ActivationFunction.softsign(m));
+        StdOut.printf(" softsign(%s) = %s", m, ActivationFunction.softsign(m));
         StdOut.println();
-        StdOut.printf("    sqnl(%s) = %s", m, ActivationFunction.softsign(m));
+        StdOut.printf("     sqnl(%s) = %s", m, ActivationFunction.sqnl(m));
         StdOut.println();
     }
 }
