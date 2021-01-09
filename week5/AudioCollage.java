@@ -43,12 +43,29 @@ class AudioCollage {
         double l = Math.round(a.length / alpha);
         double[] r = new double[(int)l];
         for (int i = 0; i < r.length; i++)
-            r[i] = a[(int)Math.round(i * alpha)];
+            r[i] = a[(int)(i * alpha)];
         return r;
     }
 
     // Creates an audio collage and plays it on standard audio.
     // See below for the requirements.
     public static void main(String[] args) {
+        double[] piano = StdAudio.read("piano.wav");
+        double[] beatbox = StdAudio.read("beatbox.wav");
+        double[] cow = StdAudio.read("cow.wav");
+        double[] singer = StdAudio.read("singer.wav");
+        double[] chimes = StdAudio.read("chimes.wav");
+        
+        piano = AudioCollage.amplify(piano, 0.75);
+        piano = AudioCollage.changeSpeed(piano, 0.9);
+        beatbox = AudioCollage.reverse(beatbox);
+        beatbox = AudioCollage.changeSpeed(beatbox, 0.25);
+        singer = AudioCollage.amplify(singer, 0.5);
+        singer = AudioCollage.changeSpeed(singer, 1.2);
+        cow = AudioCollage.changeSpeed(cow, 3.5);
+        double[] main = AudioCollage.mix(piano, chimes);
+        main = AudioCollage.merge(main, AudioCollage.mix(beatbox, singer));
+        main = AudioCollage.merge(main, cow);
+        StdAudio.play(main);    
     }
 }
