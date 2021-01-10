@@ -19,6 +19,8 @@ public class ActivationFunctionTest {
     @Test
     public void testTanh() {
         assertEquals(ActivationFunction.tanh(1), 0.7615941559557649, delta);
+        assertEquals(ActivationFunction.tanh(Double.POSITIVE_INFINITY), 1.0, delta);
+        assertEquals(ActivationFunction.tanh(Double.NEGATIVE_INFINITY), -1.0, delta);
     }
 
     @Test

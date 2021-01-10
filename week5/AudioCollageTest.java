@@ -54,7 +54,7 @@ public class AudioCollageTest {
                           new double[] { 0.2 },
                           delta);
         assertArrayEquals(AudioCollage.changeSpeed(new double[] { 0.2, 0.4, 0.3 }, 2),
-                          new double[] { 0.2, 0.3 },
+                          new double[] { 0.2 },
                           delta);
     }
 

@@ -2,8 +2,6 @@ public class Divisors {
 
     // Returns the greatest common divisor of a and b.
     public static int gcd(int a, int b) {
-        if (a == 0 || b == 0) return 0;
-
         a = Math.abs(a);
         b = Math.abs(b);
         while (b > 0) {

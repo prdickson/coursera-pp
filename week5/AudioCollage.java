@@ -40,7 +40,7 @@ class AudioCollage {
 
     // Returns a new array that changes the speed by the given factor.
     public static double[] changeSpeed(double[] a, double alpha) {
-        double l = Math.round(a.length / alpha);
+        double l = (int)(a.length / alpha);
         double[] r = new double[(int)l];
         for (int i = 0; i < r.length; i++)
             r[i] = a[(int)(i * alpha)];
@@ -66,6 +66,6 @@ class AudioCollage {
         double[] main = AudioCollage.mix(piano, chimes);
         main = AudioCollage.merge(main, AudioCollage.mix(beatbox, singer));
         main = AudioCollage.merge(main, cow);
-        StdAudio.play(main);    
+        StdAudio.play(main);
     }
 }
