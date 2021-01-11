@@ -26,7 +26,7 @@ public class Divisors {
     // relatively prime with n.
     public static int totient(int n) {
         int count = 0;
-        for (int i = 0; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             count += Divisors.areRelativelyPrime(n, i) ? 1 : 0;
         }
         return count;

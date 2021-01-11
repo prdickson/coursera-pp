@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 public class DivisorsTest {
     @Test
     public void testGcd() {
-        assertEquals(Divisors.gcd(0, 408), 0);
-        assertEquals(Divisors.gcd(408, 0), 0);
+        assertEquals(Divisors.gcd(0, 408), 408);
+        assertEquals(Divisors.gcd(408, 0), 408);
         assertEquals(Divisors.gcd(1440, 408), 24);
         assertEquals(Divisors.gcd(987, 610), 1);
     }
@@ -24,6 +24,9 @@ public class DivisorsTest {
 
     @Test
     public void testTotient() {
+        assertEquals(Divisors.totient(1), 1);
+        assertEquals(Divisors.totient(2), 1);
+        assertEquals(Divisors.totient(3), 2);
         assertEquals(Divisors.totient(1440), 384);
         assertEquals(Divisors.totient(408), 128);
         assertEquals(Divisors.totient(987), 552);
