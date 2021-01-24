@@ -12,7 +12,6 @@ public class TrinomialBrute {
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         int k = Integer.parseInt(args[1]);
-        StdOut.print(trinomial(n, k));
-        StdOut.println();
+        StdOut.println(trinomial(n, k));
     }
 }
