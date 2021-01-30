@@ -7,10 +7,7 @@ public class RecursiveSquares {
         StdDraw.setPenColor(StdDraw.LIGHT_GRAY);
         StdDraw.filledSquare(x, y, halfLength);
         StdDraw.setPenColor(StdDraw.BLACK);
-        StdDraw.line(x - halfLength, y + halfLength, x + halfLength, y + halfLength);
-        StdDraw.line(x - halfLength, y - halfLength, x + halfLength, y - halfLength);
-        StdDraw.line(x - halfLength, y - halfLength, x - halfLength, y + halfLength);
-        StdDraw.line(x + halfLength, y - halfLength, x + halfLength, y + halfLength);
+        StdDraw.square(x, y, halfLength);
     }
 
     // Draws a recursive square pattern of order n, centered on (x, y)
@@ -28,10 +25,7 @@ public class RecursiveSquares {
     // Takes an integer command-line argument n and draws a recursive
     // square pattern of order n, centered on (0.5, 0.5) with side length 0.5.
     public static void main(String[] args) {
-        StdDraw.enableDoubleBuffering();
         int n = Integer.parseInt(args[0]);
-        StdDraw.setScale(0, 1);
         draw(n, 0.5, 0.5, 0.5);
-        StdDraw.show();
     }
 }
