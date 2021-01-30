@@ -18,13 +18,13 @@ public class RevesPuzzle {
         hanoi(n-1, k, getHanoiDesination(stack, !left, labels), labels);
     }*/
     
-    public static void hanoi2(int n, int k, char src, char dest, char temp) {
+    public static void hanoi(int n, int k, char src, char dest, char temp) {
         if (n == 0) return;
         
-        hanoi2(n-1, k, src, temp, dest);
-        StdOut.printf("Move disc %s from %s to %s", n, src, dest);
+        hanoi(n-1, k, src, temp, dest);
+        StdOut.printf("Move disc %s from %s to %s", n + k, src, dest);
         StdOut.println();
-        hanoi2(n-1, k, temp, dest, src);
+        hanoi(n-1, k, temp, dest, src);
     }
 
     /*private static int getHanoiDesination(int stack, boolean left, char[] labels) {
@@ -57,9 +57,9 @@ public class RevesPuzzle {
         int k = (n + 1) - (int) Math.round(Math.sqrt(2 * n + 1));
         StdOut.println(k);
         char[] labels = {'A', 'B', 'C'};
-        //reve(k, 'A', 'B', 'C', 'D'); 
-        //hanoi(n, k, 0, labels); 
         StdOut.println(k);
-        hanoi2(n, k, 'A', 'C', 'B'); 
+        reve(k, 'A', 'B', 'C', 'D'); 
+        hanoi(n - k, k, 'A', 'D', 'C'); 
+        reve(k, 'B', 'D', 'A', 'C'); 
     }
 }
