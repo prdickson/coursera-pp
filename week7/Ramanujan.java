@@ -17,7 +17,7 @@ public class Ramanujan {
                 pairsFound++;
         }
 
-        return pairsFound == 2;
+        return pairsFound >= 2;
     }
 
     // Takes a long integer command-line arguments n and prints true if
