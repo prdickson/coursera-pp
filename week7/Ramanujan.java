@@ -1,5 +1,3 @@
-import org.w3c.dom.xpath.XPathResult;
-
 public class Ramanujan {
     // Is n a Ramanujan number?
     public static boolean isRamanujan(long n) {
