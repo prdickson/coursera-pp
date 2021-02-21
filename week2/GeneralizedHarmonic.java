@@ -5,8 +5,8 @@ public class GeneralizedHarmonic {
 
         double h = 0;
 
-        for(int i=1; i<=n;i++)
-            h += 1 / Math.pow(i, r); 
+        for (int i = 1; i <= n; i++)
+            h += 1 / Math.pow(i, r);
 
         System.out.println(h);
     }

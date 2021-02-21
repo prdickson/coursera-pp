@@ -9,12 +9,12 @@ public class WorldMap {
         StdDraw.setYscale(0, height);
         StdDraw.setPenColor(StdDraw.BLACK);
 
-        while(!StdIn.isEmpty()) {
+        while (!StdIn.isEmpty()) {
             String name = StdIn.readString();
-            int n = StdIn.readInt(); 
+            int n = StdIn.readInt();
             double[] x = new double[n];
             double[] y = new double[n];
-            for (int i = 0; i < n; i++){
+            for (int i = 0; i < n; i++) {
                 x[i] = StdIn.readDouble();
                 y[i] = StdIn.readDouble();
             }

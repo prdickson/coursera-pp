@@ -5,9 +5,9 @@ public class CMYKtoRGB {
         double y = Double.parseDouble(args[2]);
         double k = Double.parseDouble(args[3]);
         double w = 1.0 - k;
-        
-        System.out.println(String.format("red   = %s", Math.round(255 * w * (1 - c))));
-        System.out.println(String.format("green = %s", Math.round(255 * w * (1 - m))));
-        System.out.println(String.format("blue  = %s", Math.round(255 * w * (1 - y))));
+
+        System.out.printf("red   = %s%n", Math.round(255 * w * (1 - c)));
+        System.out.printf("green = %s%n", Math.round(255 * w * (1 - m)));
+        System.out.printf("blue  = %s%n", Math.round(255 * w * (1 - y)));
     }
 }

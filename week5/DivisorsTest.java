@@ -1,4 +1,5 @@
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class DivisorsTest {
@@ -18,8 +19,8 @@ public class DivisorsTest {
 
     @Test
     public void testAreRelativelyPrime() {
-        assertEquals(Divisors.areRelativelyPrime(1440, 408), false);
-        assertEquals(Divisors.areRelativelyPrime(987, 610), true);
+        assertFalse(Divisors.areRelativelyPrime(1440, 408));
+        assertTrue(Divisors.areRelativelyPrime(987, 610));
     }
 
     @Test

@@ -6,14 +6,14 @@ public class ShannonEntropy {
 
         while (!StdIn.isEmpty()) {
             int x = StdIn.readInt();
-            occ[x-1] += 1;
+            occ[x - 1] += 1;
             n += 1;
         }
 
         double ent = 0.0;
-        for(int i = 0; i < m; i++) {
+        for (int i = 0; i < m; i++) {
             if (occ[i] > 0) {
-                double p = (double)occ[i] / n;
+                double p = (double) occ[i] / n;
                 ent += p * (Math.log(p) / Math.log(2));
             }
         }

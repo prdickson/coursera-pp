@@ -18,7 +18,7 @@ public class ActivationFunction {
     public static double tanh(double x) {
         if (Double.isNaN(x)) return Double.NaN;
         double result = (Math.exp(x) - Math.exp(-x)) / (Math.exp(x) + Math.exp(-x));
-        if (Double.isNaN(result))  
+        if (Double.isNaN(result))
             return (x < 0) ? -1.0 : 1.0;
         return result;
     }
@@ -27,13 +27,13 @@ public class ActivationFunction {
     public static double softsign(double x) {
         if (Double.isNaN(x)) return Double.NaN;
         double result = x / (1 + Math.abs(x));
-        if (Double.isNaN(result))  
+        if (Double.isNaN(result))
             return (x < 0) ? -1.0 : 1.0;
         return result;
     }
 
     // Returns the square nonlinearity function of x.
-    public static double sqnl(double x){
+    public static double sqnl(double x) {
         if (Double.isNaN(x)) return Double.NaN;
         if (x <= -2) return -1.0;
         if (x < 0) return x + (Math.pow(x, 2) / 4);
@@ -42,7 +42,7 @@ public class ActivationFunction {
     }
 
     public static void main(String[] args) {
-        Double m = Double.parseDouble(args[0]);
+        double m = Double.parseDouble(args[0]);
         StdOut.printf("heaviside(%s) = %s", m, ActivationFunction.heaviside(m));
         StdOut.println();
         StdOut.printf("  sigmoid(%s) = %s", m, ActivationFunction.sigmoid(m));

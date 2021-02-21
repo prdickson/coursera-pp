@@ -7,9 +7,9 @@ public class RandomWalker {
 
         int steps = 0;
 
-        System.out.println(String.format("(%s, %s)", x, y));
+        System.out.printf("(%s, %s)%n", x, y);
         while (Math.abs(x) + Math.abs(y) < d) {
-            int dir = (int)(Math.random() * 4);
+            int dir = (int) (Math.random() * 4);
             if (dir == 0)
                 x += 1;
             else if (dir == 1)
@@ -19,10 +19,10 @@ public class RandomWalker {
             else if (dir == 3)
                 y -= 1;
 
-            System.out.println(String.format("(%s, %s)", x, y));
+            System.out.printf("(%s, %s)%n", x, y);
             steps += 1;
         }
-        
-        System.out.println(String.format("steps = %s", steps));
+
+        System.out.printf("steps = %s%n", steps);
     }
 }

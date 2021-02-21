@@ -5,9 +5,9 @@ public class Divisors {
         a = Math.abs(a);
         b = Math.abs(b);
         while (b > 0) {
-           int temp = b;
-           b = a % b;
-           a = temp;
+            int temp = b;
+            b = a % b;
+            a = temp;
         }
         return a;
     }
@@ -18,8 +18,8 @@ public class Divisors {
     }
 
     // Returns true if a and b are relatively prime; false otherwise.
-    public static boolean areRelativelyPrime(int a, int b){
-        return Divisors.gcd(a,b) == 1;
+    public static boolean areRelativelyPrime(int a, int b) {
+        return Divisors.gcd(a, b) == 1;
     }
 
     // Returns the number of integers between 1 and n that are
@@ -41,7 +41,7 @@ public class Divisors {
         StdOut.println();
         StdOut.printf("lcm(%s, %s) = %s", a, b, Divisors.lcm(a, b));
         StdOut.println();
-        StdOut.printf("areRelativelyPrime(%s, %s) = %s", a, b, 
+        StdOut.printf("areRelativelyPrime(%s, %s) = %s", a, b,
                 Divisors.areRelativelyPrime(a, b));
         StdOut.println();
         StdOut.printf("totient(%s) = %s", a, Divisors.totient(a));

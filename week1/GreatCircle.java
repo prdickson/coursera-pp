@@ -8,9 +8,9 @@ public class GreatCircle {
 
         double sx = Math.sin((x2 - x1) / 2.0);
         double sy = Math.sin((y2 - y1) / 2.0);
-        double th = Math.sqrt(sx * sx + Math.cos(x1) * Math.cos(x2) * sy * sy); 
+        double th = Math.sqrt(sx * sx + Math.cos(x1) * Math.cos(x2) * sy * sy);
         double distance = 2.0 * r * Math.asin(th);
-        
-        System.out.println(String.format("%s kilometers", distance));
+
+        System.out.printf("%s kilometers%n", distance);
     }
 }

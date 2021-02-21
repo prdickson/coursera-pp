@@ -5,12 +5,12 @@ public class RandomWalkers {
 
         int steps = 0;
 
-        for(int i =0; i<trials; i++) {
+        for (int i = 0; i < trials; i++) {
             int x = 0;
             int y = 0;
 
             while (Math.abs(x) + Math.abs(y) < d) {
-                int dir = (int)(Math.random() * 4);
+                int dir = (int) (Math.random() * 4);
                 if (dir == 0)
                     x += 1;
                 else if (dir == 1)
@@ -23,7 +23,7 @@ public class RandomWalkers {
                 steps += 1;
             }
         }
-        
-        System.out.println(String.format("average number of steps = %s", steps / (double)trials));
+
+        System.out.printf("average number of steps = %s%n", steps / (double) trials);
     }
 }

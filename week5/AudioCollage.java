@@ -20,11 +20,9 @@ class AudioCollage {
     public static double[] merge(double[] a, double[] b) {
         double[] r = new double[a.length + b.length];
 
-        for (int i = 0; i < a.length; i++)
-            r[i] = a[i];
-        for (int i = 0; i < b.length; i++)
-            r[a.length + i] = b[i];
-                   
+        System.arraycopy(a, 0, r, 0, a.length);
+        System.arraycopy(b, 0, r, a.length, b.length);
+
         return r;
     }
 
@@ -34,16 +32,16 @@ class AudioCollage {
         double[] r = new double[Math.max(a.length, b.length)];
         for (int i = 0; i < r.length; i++)
             r[i] = (i < a.length ? a[i] : 0.0) +
-                   (i < b.length ? b[i] : 0.0);
+                    (i < b.length ? b[i] : 0.0);
         return r;
     }
 
     // Returns a new array that changes the speed by the given factor.
     public static double[] changeSpeed(double[] a, double alpha) {
-        double l = (int)(a.length / alpha);
-        double[] r = new double[(int)l];
+        double l = (int) (a.length / alpha);
+        double[] r = new double[(int) l];
         for (int i = 0; i < r.length; i++)
-            r[i] = a[(int)(i * alpha)];
+            r[i] = a[(int) (i * alpha)];
         return r;
     }
 
@@ -55,7 +53,7 @@ class AudioCollage {
         double[] cow = StdAudio.read("cow.wav");
         double[] singer = StdAudio.read("singer.wav");
         double[] chimes = StdAudio.read("chimes.wav");
-        
+
         piano = AudioCollage.amplify(piano, 0.75);
         piano = AudioCollage.changeSpeed(piano, 0.9);
         beatbox = AudioCollage.reverse(beatbox);

@@ -2,9 +2,9 @@ public class TrinomialDP {
 
     // Returns the trinomial coefficient T(n, k).
     public static long trinomial(int n, int k) {
-        if (n == 0 && k ==0) return 1;
+        if (n == 0 && k == 0) return 1;
         if (k < -n || k > n) return 0;
-        
+
         long[][] results = new long[n + 1][n + 1];
         results[0][0] = 1;
 
@@ -12,16 +12,14 @@ public class TrinomialDP {
             for (int j = 0; j <= i; j++) {
                 if (j == 0) {
                     results[i][j] = results[i - 1][j] + results[i - 1][j + 1] * 2;
-                }
-                else if (j == i) {
+                } else if (j == i) {
                     results[i][j] = results[i - 1][j] + results[i - 1][j - 1];
-                }
-                else { 
+                } else {
                     results[i][j] = results[i - 1][j] + results[i - 1][j - 1] + results[i - 1][j + 1];
                 }
-           }
+            }
         }
-                    
+
         return results[n][Math.abs(k)];
     }
 
