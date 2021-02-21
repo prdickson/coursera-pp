@@ -10,6 +10,10 @@ public class MaximumSquareSubmatrix {
         for (int target = 1; target <= a.length; target++) {
             for (int j = 0; j < a.length - 1; j++) {
                 for (int k = 0; k < a.length - 1; k++) {
+
+                    if (currentMax == 0 && (a[j][k] == target || a[j][k + 1] >= target || a[j + 1][k] >= target || a[j + 1][k + 1] >= target))
+                        currentMax = target;
+
                     if (a[j][k] >= target && a[j][k + 1] >= target && a[j + 1][k] >= target && a[j + 1][k + 1] >= target) {
                         a[j][k] = target + 1;
                         currentMax = target + 1;
