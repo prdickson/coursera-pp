@@ -36,4 +36,19 @@ public class HuntingtonsTest {
     public void testDiagnoseNotHumanHigh() {
         assertEquals("not human", Huntingtons.diagnose(181));
     }
+
+    @Test
+    public void testMaxRepeatsConsecutive() {
+        assertEquals(1, Huntingtons.maxRepeats("CAG"));
+        assertEquals(2, Huntingtons.maxRepeats("CAGCAG"));
+        assertEquals(2, Huntingtons.maxRepeats("CAGCAGC"));
+        assertEquals(4, Huntingtons.maxRepeats("TTCAGCAGCAGCAGTTTTTTTTT"));
+    }
+
+    @Test
+    public void testMaxRepeatsNonConsecutive() {
+        String fiveRepeats = "TTCAGCAGCAGCAGTTTCAGCAGCAGCAGCAGTTTTTTTTTTTTTCAGTTTTTTT";
+
+        assertEquals(5, Huntingtons.maxRepeats(fiveRepeats));
+    }
 }
