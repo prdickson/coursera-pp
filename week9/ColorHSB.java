@@ -1,4 +1,8 @@
 public class ColorHSB {
+    private final int h;
+    private final int s;
+    private final int b;
+
     // Creates a color with hue h, saturation s, and brightness b.
     public ColorHSB(int h, int s, int b) {
         if (h < 0) throw new IllegalArgumentException("h");
@@ -7,11 +11,15 @@ public class ColorHSB {
         if (s > 100) throw new IllegalArgumentException("s");
         if (b < 0) throw new IllegalArgumentException("b");
         if (b > 100) throw new IllegalArgumentException("b");
+
+        this.h = h;
+        this.s = s;
+        this.b = b;
     }
 
     // Returns a string representation of this color, using the format (h, s, b).
     public String toString() {
-        return "";
+        return String.format("(%s, %s, %s)", h, s, b);
     }
 
     // Is this color a shade of gray?

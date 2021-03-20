@@ -41,7 +41,13 @@ public class ColorHSBTest {
 
     @Test
     public void testThrowsDistanceToSquareParamIsNull() {
-        ColorHSB c = new ColorHSB(0, 0, 0); //does not throw
+        ColorHSB c = new ColorHSB(0, 0, 0);
         assertThrows(IllegalArgumentException.class, () -> c.distanceSquaredTo(null));
+    }
+
+    @Test
+    public void testToString() {
+        ColorHSB c = new ColorHSB(156, 60, 70);
+        assertEquals("(156, 60, 70)", c.toString());
     }
 }
