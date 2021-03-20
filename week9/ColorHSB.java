@@ -21,6 +21,8 @@ public class ColorHSB {
 
     // Returns the squared distance between the two colors.
     public int distanceSquaredTo(ColorHSB that) {
+        if (that == null) throw new IllegalArgumentException("that");
+
         return 0;
     }
 
