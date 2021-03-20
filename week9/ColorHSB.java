@@ -31,7 +31,9 @@ public class ColorHSB {
     public int distanceSquaredTo(ColorHSB that) {
         if (that == null) throw new IllegalArgumentException("that");
 
-        return 0;
+        return (int) Math.min(
+                Math.pow(h - that.h, 2),
+                Math.pow(360 - Math.abs(h - that.h), 2) + Math.pow(s - that.s, 2) + Math.pow(b - that.b, 2));
     }
 
     // Sample client (see below).

@@ -11,7 +11,7 @@ public class ColorHSBTest {
 
     @Test
     public void testThrowsWhenHueIsGreaterThan359() {
-        new ColorHSB(339, 0, 0); //does not throw
+        new ColorHSB(359, 0, 0); //does not throw
         assertThrows(IllegalArgumentException.class, () -> new ColorHSB(360, 0, 0));
     }
 
@@ -73,5 +73,19 @@ public class ColorHSBTest {
     public void testIsNotGrayscaleBrightness() {
         ColorHSB c = new ColorHSB(156, 1, 1);
         assertFalse(c.isGrayscale());
+    }
+
+    @Test
+    public void testDistanceSmallHueDelta() {
+        ColorHSB c1 = new ColorHSB(359, 1, 1);
+        ColorHSB c2 = new ColorHSB(358, 1, 1);
+        assertEquals(1, c1.distanceSquaredTo(c2));
+    }
+
+    @Test
+    public void testDistanceLargeHueDelta() {
+        ColorHSB c1 = new ColorHSB(350, 100, 45);
+        ColorHSB c2 = new ColorHSB(0, 90, 50);
+        assertEquals(225, c1.distanceSquaredTo(c2));
     }
 }
