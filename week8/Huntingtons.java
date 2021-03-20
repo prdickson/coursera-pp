@@ -37,7 +37,15 @@ public class Huntingtons {
     }
 
     public static void main(String[] args) {
+        String fileName = args[0];
+        String[] input = new In(fileName).readAllStrings();
+        String dna = removeWhitespace(String.join("", input));
 
+        int repeats = maxRepeats(dna);
+
+        StdOut.printf("max repeats = %s", repeats);
+        StdOut.println();
+        StdOut.println(diagnose(repeats));
     }
 
 }

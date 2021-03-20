@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 public class HuntingtonsTest {
     @Test
     public void testRemovesWhiteSpace() {
-        assertEquals("abc", Huntingtons.removeWhitespace("a \nb\tc"));
+        assertEquals("abc", Huntingtons.removeWhitespace("a \n\n\t\t  b\tc"));
     }
 
     @Test
