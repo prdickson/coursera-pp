@@ -24,7 +24,7 @@ public class ColorHSB {
 
     // Is this color a shade of gray?
     public boolean isGrayscale() {
-        return false;
+        return s == 0 || b == 0;
     }
 
     // Returns the squared distance between the two colors.

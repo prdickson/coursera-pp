@@ -50,4 +50,28 @@ public class ColorHSBTest {
         ColorHSB c = new ColorHSB(156, 60, 70);
         assertEquals("(156, 60, 70)", c.toString());
     }
+
+    @Test
+    public void testIsGrayscaleSaturation() {
+        ColorHSB c = new ColorHSB(156, 0, 1);
+        assertTrue(c.isGrayscale());
+    }
+
+    @Test
+    public void testIsNotGrayscaleSaturation() {
+        ColorHSB c = new ColorHSB(156, 1, 1);
+        assertFalse(c.isGrayscale());
+    }
+
+    @Test
+    public void testIsGrayscaleBrightness() {
+        ColorHSB c = new ColorHSB(156, 1, 0);
+        assertTrue(c.isGrayscale());
+    }
+
+    @Test
+    public void testIsNotGrayscaleBrightness() {
+        ColorHSB c = new ColorHSB(156, 1, 1);
+        assertFalse(c.isGrayscale());
+    }
 }
