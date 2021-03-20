@@ -3,7 +3,7 @@ import java.awt.Color;
 public class KernelFilter {
     // Returns a new picture that applies the identity filter to the given picture.
     public static Picture identity(Picture picture) {
-        double[][] weights = new double[][]{
+        double[][] weights = {
                 {0, 0, 0},
                 {0, 1, 0},
                 {0, 0, 0}
@@ -14,7 +14,7 @@ public class KernelFilter {
 
     // Returns a new picture that applies a Gaussian blur filter to the given picture.
     public static Picture gaussian(Picture picture) {
-        double[][] weights = new double[][]{
+        double[][] weights = {
                 {1 / 16d, 2 / 16d, 1 / 16d},
                 {2 / 16d, 4 / 16d, 2 / 16d},
                 {1 / 16d, 2 / 16d, 1 / 16d}
@@ -25,7 +25,7 @@ public class KernelFilter {
 
     // Returns a new picture that applies a sharpen filter to the given picture.
     public static Picture sharpen(Picture picture) {
-        double[][] weights = new double[][]{
+        double[][] weights = {
                 {0, -1, 0},
                 {-1, 5, -1},
                 {0, -1, 0},
@@ -36,7 +36,7 @@ public class KernelFilter {
 
     // Returns a new picture that applies an Laplacian filter to the given picture.
     public static Picture laplacian(Picture picture) {
-        double[][] weights = new double[][]{
+        double[][] weights = {
                 {-1, -1, -1},
                 {-1, 8, -1},
                 {-1, -1, -1},
@@ -47,7 +47,7 @@ public class KernelFilter {
 
     // Returns a new picture that applies an emboss filter to the given picture.
     public static Picture emboss(Picture picture) {
-        double[][] weights = new double[][]{
+        double[][] weights = {
                 {-2, -1, 0},
                 {-1, 1, 1},
                 {0, 1, 2},
@@ -58,7 +58,7 @@ public class KernelFilter {
 
     // Returns a new picture that applies a motion blur filter to the given picture.
     public static Picture motionBlur(Picture picture) {
-        double[][] weights = new double[][]{
+        double[][] weights = {
                 {1 / 9d, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 1 / 9d, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 1 / 9d, 0, 0, 0, 0, 0, 0, 0},
@@ -132,7 +132,5 @@ public class KernelFilter {
         Picture p = new Picture("baboon.png");
         p.show();
         gaussian(p).show();
-
-
     }
 }
