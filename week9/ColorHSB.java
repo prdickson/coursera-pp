@@ -31,13 +31,36 @@ public class ColorHSB {
     public int distanceSquaredTo(ColorHSB that) {
         if (that == null) throw new IllegalArgumentException("that");
 
-        return (int) Math.min(
-                Math.pow(h - that.h, 2),
-                Math.pow(360 - Math.abs(h - that.h), 2) + Math.pow(s - that.s, 2) + Math.pow(b - that.b, 2));
+        return (int) (Math.min(Math.pow(h - that.h, 2), Math.pow(360 - Math.abs(h - that.h), 2))
+                + Math.pow(s - that.s, 2)
+                + Math.pow(b - that.b, 2));
     }
 
     // Sample client (see below).
     public static void main(String[] args) {
+        ColorHSB c1 = new ColorHSB(
+                Integer.parseInt(args[0]),
+                Integer.parseInt(args[1]),
+                Integer.parseInt(args[2]));
 
+        String closestName = null;
+        ColorHSB closest = null;
+        int closestDistanceSquared = Integer.MAX_VALUE;
+        while (!StdIn.isEmpty()) {
+            String name = StdIn.readString();
+            ColorHSB c2 = new ColorHSB(StdIn.readInt(), StdIn.readInt(), StdIn.readInt());
+
+            int distance = c1.distanceSquaredTo(c2);
+            if (distance <= closestDistanceSquared) {
+                closestName = name;
+                closest = c2;
+                closestDistanceSquared = distance;
+            }
+        }
+
+        if (closest != null) {
+            StdOut.printf("%s %s", closestName, closest);
+            StdOut.println();
+        }
     }
 }
