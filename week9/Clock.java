@@ -51,15 +51,17 @@ public class Clock {
                 h = 0;
             else
                 h += 1;
-        }
-        else {
+        } else {
             m += 1;
         }
     }
 
     // Adds Δ minutes to the time on this clock.
     public void toc(int delta) {
-
+        int tm = delta + m;
+        m = tm % 60;
+        int th = (int) Math.floor(tm / 60d) + h;
+        h = th % 24;
     }
 
     // Test client (see below).

@@ -97,4 +97,28 @@ public class ClockTest {
 
         assertEquals("00:00", c.toString());
     }
+
+    @Test
+    public void testCanAddManyMinutes() {
+        Clock c = new Clock(1,0);
+        c.toc(30);
+
+        assertEquals("01:30", c.toString());
+    }
+
+    @Test
+    public void testCanAddManyMinutesHours() {
+        Clock c = new Clock(1,30);
+        c.toc(75);
+
+        assertEquals("02:45", c.toString());
+    }
+
+    @Test
+    public void testCanAddManyMinutesDays() {
+        Clock c = new Clock(23,30);
+        c.toc(75);
+
+        assertEquals("00:45", c.toString());
+    }
 }
