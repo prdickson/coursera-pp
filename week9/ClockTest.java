@@ -56,27 +56,27 @@ public class ClockTest {
 
     @Test
     public void testEarlierThanWhenHourIsEarlier() {
-        assertTrue(new Clock(1,0).isEarlierThan(new Clock(2, 0)));
+        assertTrue(new Clock(1, 0).isEarlierThan(new Clock(2, 0)));
     }
 
     @Test
     public void testEarlierThanWhenMinutesIsEarlier() {
-        assertTrue(new Clock(1,1).isEarlierThan(new Clock(1, 2)));
+        assertTrue(new Clock(1, 1).isEarlierThan(new Clock(1, 2)));
     }
 
     @Test
     public void testNotEarlierThanWhenHourIsLater() {
-        assertFalse(new Clock(2,1).isEarlierThan(new Clock(1, 2)));
+        assertFalse(new Clock(2, 1).isEarlierThan(new Clock(1, 2)));
     }
 
     @Test
     public void testNotEarlierThanWhenHourIsEqualButMinutesIsLater() {
-        assertFalse(new Clock(1,3).isEarlierThan(new Clock(1, 2)));
+        assertFalse(new Clock(1, 3).isEarlierThan(new Clock(1, 2)));
     }
 
     @Test
     public void testCanAddMinute() {
-        Clock c = new Clock(1,1);
+        Clock c = new Clock(1, 1);
         c.tic();
 
         assertEquals("01:02", c.toString());
@@ -84,7 +84,7 @@ public class ClockTest {
 
     @Test
     public void testCanAddMinuteOnHour() {
-        Clock c = new Clock(1,59);
+        Clock c = new Clock(1, 59);
         c.tic();
 
         assertEquals("02:00", c.toString());
@@ -92,7 +92,7 @@ public class ClockTest {
 
     @Test
     public void testCanAddMinuteAtMidnight() {
-        Clock c = new Clock(23,59);
+        Clock c = new Clock(23, 59);
         c.tic();
 
         assertEquals("00:00", c.toString());
@@ -100,7 +100,7 @@ public class ClockTest {
 
     @Test
     public void testCanAddManyMinutes() {
-        Clock c = new Clock(1,0);
+        Clock c = new Clock(1, 0);
         c.toc(30);
 
         assertEquals("01:30", c.toString());
@@ -108,7 +108,7 @@ public class ClockTest {
 
     @Test
     public void testCanAddManyMinutesHours() {
-        Clock c = new Clock(1,30);
+        Clock c = new Clock(1, 30);
         c.toc(75);
 
         assertEquals("02:45", c.toString());
@@ -116,9 +116,16 @@ public class ClockTest {
 
     @Test
     public void testCanAddManyMinutesDays() {
-        Clock c = new Clock(23,30);
+        Clock c = new Clock(23, 30);
         c.toc(75);
 
         assertEquals("00:45", c.toString());
+    }
+
+    @Test
+    public void testThrowsIfDeltaIsNegative() {
+        Clock c = new Clock(23, 30);
+
+        assertThrows(IllegalArgumentException.class, () -> c.toc(-1));
     }
 }

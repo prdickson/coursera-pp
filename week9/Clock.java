@@ -58,6 +58,8 @@ public class Clock {
 
     // Adds Δ minutes to the time on this clock.
     public void toc(int delta) {
+        if (delta < 0) throw new IllegalArgumentException("delta");
+
         int tm = delta + m;
         m = tm % 60;
         int th = (int) Math.floor(tm / 60d) + h;
