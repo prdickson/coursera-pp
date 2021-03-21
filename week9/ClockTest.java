@@ -53,4 +53,24 @@ public class ClockTest {
     public void testToStringWithPadding() {
         assertEquals("01:02", new Clock(1, 2).toString());
     }
+
+    @Test
+    public void testEarlierThanWhenHourIsEarlier() {
+        assertTrue(new Clock(1,0).isEarlierThan(new Clock(2, 0)));
+    }
+
+    @Test
+    public void testEarlierThanWhenMinutesIsEarlier() {
+        assertTrue(new Clock(1,1).isEarlierThan(new Clock(1, 2)));
+    }
+
+    @Test
+    public void testNotEarlierThanWhenHourIsLater() {
+        assertFalse(new Clock(2,1).isEarlierThan(new Clock(1, 2)));
+    }
+
+    @Test
+    public void testNotEarlierThanWhenHourIsEqualButMinutesIsLater() {
+        assertFalse(new Clock(1,3).isEarlierThan(new Clock(1, 2)));
+    }
 }

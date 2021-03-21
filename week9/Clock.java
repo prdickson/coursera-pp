@@ -35,12 +35,12 @@ public class Clock {
 
     // Returns a string representation of this clock, using the format HH:MM.
     public String toString() {
-        return String.format("%02d:%02d", h, m) ;
+        return String.format("%02d:%02d", h, m);
     }
 
     // Is the time on this clock earlier than the time on that one?
     public boolean isEarlierThan(Clock that) {
-        return false;
+        return h < that.h || (h == that.h && m < that.m);
     }
 
     // Adds 1 minute to the time on this clock.
