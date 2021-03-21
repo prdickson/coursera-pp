@@ -73,4 +73,28 @@ public class ClockTest {
     public void testNotEarlierThanWhenHourIsEqualButMinutesIsLater() {
         assertFalse(new Clock(1,3).isEarlierThan(new Clock(1, 2)));
     }
+
+    @Test
+    public void testCanAddMinute() {
+        Clock c = new Clock(1,1);
+        c.tic();
+
+        assertEquals("01:02", c.toString());
+    }
+
+    @Test
+    public void testCanAddMinuteOnHour() {
+        Clock c = new Clock(1,59);
+        c.tic();
+
+        assertEquals("02:00", c.toString());
+    }
+
+    @Test
+    public void testCanAddMinuteAtMidnight() {
+        Clock c = new Clock(23,59);
+        c.tic();
+
+        assertEquals("00:00", c.toString());
+    }
 }

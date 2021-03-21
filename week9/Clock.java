@@ -45,7 +45,16 @@ public class Clock {
 
     // Adds 1 minute to the time on this clock.
     public void tic() {
-
+        if (m == 59) {
+            m = 0;
+            if (h == 23)
+                h = 0;
+            else
+                h += 1;
+        }
+        else {
+            m += 1;
+        }
     }
 
     // Adds Δ minutes to the time on this clock.
