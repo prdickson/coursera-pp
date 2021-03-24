@@ -15,24 +15,28 @@ public class BarChartRacer {
 
         BarChart bc = new BarChart(title, xAxisLabel, dataSource);
 
-        int barCount = StdIn.readInt();
-        String date = "";
-        Bar[] bars = new Bar[barCount];
-        StdIn.readLine();
-        for (int i = 0; i < barCount; i++) {
-            String[] cols = StdIn.readLine().split(",");
-            date = cols[0];
-            bars[i] = new Bar(cols[1], Integer.parseInt(cols[3]), cols[4]);
+        while (StdIn.hasNextLine()) {
+            int barCount = StdIn.readInt();
+            String date = "";
+            Bar[] bars = new Bar[barCount];
+            StdIn.readLine();
+            for (int i = 0; i < barCount; i++) {
+                String[] cols = StdIn.readLine().split(",");
+                date = cols[0];
+                bars[i] = new Bar(cols[1], Integer.parseInt(cols[3]), cols[4]);
+            }
+            Arrays.sort(bars, Collections.reverseOrder());
+
+            for (int i = 0; i < Math.min(barsToShow, barCount); i++)
+                bc.add(bars[i].getName(), bars[i].getValue(), bars[i].getCategory());
+
+            bc.setCaption(date);
+            bc.draw();
+            StdDraw.show();
+            bc.reset();
+            StdDraw.pause(100);
+            StdDraw.clear();
         }
-        Arrays.sort(bars, Collections.reverseOrder());
-
-        for (int i = 0; i < Math.min(barsToShow, barCount); i++)
-            bc.add(bars[i].getName(), bars[i].getValue(), bars[i].getCategory());
-
-        bc.setCaption(date);
-        bc.draw();
-        StdDraw.show();
-        bc.reset();
     }
 
 }
