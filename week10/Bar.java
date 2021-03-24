@@ -38,7 +38,6 @@ public class Bar implements Comparable<Bar> {
 
     // Sample client (see below).
     public static void main(String[] args) {
-
     }
 
 }
