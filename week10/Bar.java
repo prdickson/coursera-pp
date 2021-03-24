@@ -33,9 +33,7 @@ public class Bar implements Comparable<Bar> {
     // Compare two bars by value.
     public int compareTo(Bar that) {
         if (that == null) throw new IllegalArgumentException("that");
-        if (value < that.value) return -1;
-        if (value > that.value) return 1;
-        return 0;
+        return Integer.compare(value, that.value);
     }
 
     // Sample client (see below).
