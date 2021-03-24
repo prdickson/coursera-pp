@@ -24,4 +24,22 @@ public class BarTest {
         Bar b = new Bar("name", 0, "category");
         assertThrows(IllegalArgumentException.class, () -> b.compareTo(null));
     }
+
+    @Test
+    public void testGetName() {
+        Bar b = new Bar("name", 0, "category");
+        assertEquals("name", b.getName());
+    }
+
+    @Test
+    public void testGetValue() {
+        Bar b = new Bar("name", 1, "category");
+        assertEquals(1, b.getValue());
+    }
+
+    @Test
+    public void testGetCategory() {
+        Bar b = new Bar("name", 1, "category");
+        assertEquals("category", b.getCategory());
+    }
 }
