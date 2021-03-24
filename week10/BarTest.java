@@ -22,7 +22,7 @@ public class BarTest {
     @Test
     public void testThrowsWhenComparedToNull() {
         Bar b = new Bar("name", 0, "category");
-        assertThrows(IllegalArgumentException.class, () -> b.compareTo(null));
+        assertThrows(NullPointerException.class, () -> b.compareTo(null));
     }
 
     @Test

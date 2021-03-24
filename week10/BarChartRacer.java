@@ -3,25 +3,28 @@ import java.util.Collections;
 
 public class BarChartRacer {
     public static void main(String[] args) {
-        int barsToShow = Integer.parseInt(args[0]);
+        String file = args[0];
+        int barsToShow = Integer.parseInt(args[1]);
+        
+        In in = new In(file);
 
-        String title = StdIn.readLine();
-        String xAxisLabel = StdIn.readLine();
-        String dataSource = StdIn.readLine();
+        String title = in.readLine();
+        String xAxisLabel = in.readLine();
+        String dataSource = in.readLine();
 
         StdDraw.setCanvasSize(1000, 700);
         StdDraw.enableDoubleBuffering();
 
-
         BarChart bc = new BarChart(title, xAxisLabel, dataSource);
 
-        while (StdIn.hasNextLine()) {
-            int barCount = StdIn.readInt();
+        while (in.hasNextLine()) {
+            in.readLine();
+            int barCount = Integer.parseInt(in.readLine());;
             String date = "";
             Bar[] bars = new Bar[barCount];
-            StdIn.readLine();
+
             for (int i = 0; i < barCount; i++) {
-                String[] cols = StdIn.readLine().split(",");
+                String[] cols = in.readLine().split(",");
                 date = cols[0];
                 bars[i] = new Bar(cols[1], Integer.parseInt(cols[3]), cols[4]);
             }

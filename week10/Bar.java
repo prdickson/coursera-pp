@@ -32,7 +32,7 @@ public class Bar implements Comparable<Bar> {
 
     // Compare two bars by value.
     public int compareTo(Bar that) {
-        if (that == null) throw new IllegalArgumentException("that");
+        if (that == null) throw new NullPointerException("that");
         return Integer.compare(value, that.value);
     }
 
