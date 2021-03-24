@@ -42,4 +42,22 @@ public class BarTest {
         Bar b = new Bar("name", 1, "category");
         assertEquals("category", b.getCategory());
     }
+
+    @Test
+    public void testCompareToEquals() {
+        Bar b = new Bar("n", 1, "c");
+        assertEquals(0, b.compareTo(new Bar("n", 1, "c")));
+    }
+
+    @Test
+    public void testCompareToLessThen() {
+        Bar b = new Bar("n", 0, "c");
+        assertEquals(-1, b.compareTo(new Bar("n", 1, "c")));
+    }
+
+    @Test
+    public void testCompareToGreaterThen() {
+        Bar b = new Bar("n", 1, "c");
+        assertEquals(1, b.compareTo(new Bar("n", 0, "c")));
+    }
 }
